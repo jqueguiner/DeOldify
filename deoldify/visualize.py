@@ -176,13 +176,13 @@ class ModelImageVisualizer:
 	# can accept also already opened PIL files
         self._clean_mem()
         if isinstance(path, str):
-            path_or_data = Path(path_or_data)
+            path = Path(path)
 
         if isinstance(path, Path):
             orig_image = self._open_pil_image(path)
 
         if isinstance(path, Image.Image):
-            orig_image = path_or_data
+            orig_image = path
 
         filtered_image = self.filter.filter(
             orig_image, orig_image, render_factor=render_factor,post_process=post_process
